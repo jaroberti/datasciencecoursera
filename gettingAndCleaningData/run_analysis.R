@@ -63,7 +63,8 @@ for(i in 1:nrow(meansAndStds)){
 
 
 #-----------START: CREATE TIDY-----------#
-#create Tidy dataset using ddply fubction:
+#create Tidy dataset of mean values of each variable for each subject and activity using ddply fubction:
 variableMeans<-ddply(meansAndStds, .(Subject,Activity), numcolwise(mean))
+#write dataframe to .txt file:
 write.table(variableMeans, file = "tidyData.txt", row.names = FALSE)
 #-----------END: CREATE TIDY-----------#
